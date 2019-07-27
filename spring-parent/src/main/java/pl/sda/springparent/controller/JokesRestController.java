@@ -41,6 +41,17 @@ public class JokesRestController {
         jokesService.addJoke(joke);
     }
 
+    @PutMapping("/joke")
+    public void putJoke(@RequestBody Joke joke) {
+        Joke jokeToUpdate = jokesService.getJoke(joke.getValue().getId());
+        //jokesService.update(jokeToUpdate, joke);
+    }
+
+    @DeleteMapping("/joke/{id}")
+    public void deleteJoke(@PathVariable Integer id) {
+        //jokesService.delete(id);
+    }
+
     @GetMapping("/lag")
     @Cacheable("lag")
     public Joke lag() {

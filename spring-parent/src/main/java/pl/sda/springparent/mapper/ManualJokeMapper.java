@@ -11,13 +11,14 @@ public class ManualJokeMapper {
         return JokeEntity.builder()
                 .value(joke.getValue().getJoke())
                 .categories(asList(joke.getValue().getCategories()))
+                .externalId(joke.getValue().getId())
                 .build();
     }
 
     public static Joke map(JokeEntity entity) {
         return Joke.builder().type("SUCCESS")
                 .value(JokeValue.builder()
-                        .id(0)
+                        .id(entity.getExternalId())
                         .joke(entity.getValue())
                         .categories((String[]) entity.getCategories().toArray()) //nieładnie :(
                         .build())

@@ -35,6 +35,12 @@ public class MockedDb implements DbApi {
         log.info("Joke has been saved: {} with id: {}", joke, counter);
     }
 
+    //deleteById
+    public void deleteJoke(Integer id){
+        db.remove(id);
+    }
+    //updateJoke
+
     private synchronized Integer counter() {
         return db.size() + 1;
     }

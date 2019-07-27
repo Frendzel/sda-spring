@@ -10,6 +10,7 @@ import java.util.List;
 @Builder
 public class JokeEntity {
     Integer id;
+    Integer externalId;
     String value;
     List<String> categories = new ArrayList<>();
 }
