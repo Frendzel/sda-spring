@@ -1,7 +1,9 @@
 package pl.sda.springparent.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //{
 //        "type": "success",
@@ -13,6 +15,8 @@ import lombok.Data;
 //        }
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Joke {
     String type;
     JokeValue value;

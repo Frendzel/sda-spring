@@ -18,6 +18,7 @@ public class MockedDb {
 
     public void addJoke(JokeEntity joke) {
         Integer counter = counter();
+        joke.setId(counter);
         db.putIfAbsent(counter, joke);
         log.info("Joke has been saved: {} with id: {}", joke, counter);
     }
