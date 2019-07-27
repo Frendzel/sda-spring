@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 import pl.sda.springparent.dao.JokeEntity;
 import pl.sda.springparent.repository.DbApi;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -14,6 +16,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @Profile("mocked") // profile aplikacji
 public class MockedDb implements DbApi {
     Map<Integer, JokeEntity> db = new ConcurrentHashMap<>();
+
+    @Override
+    public List<JokeEntity> getJokes() {
+        return new ArrayList<>(db.values());
+    }
 
     @Override
     public JokeEntity getJoke(Integer id) {

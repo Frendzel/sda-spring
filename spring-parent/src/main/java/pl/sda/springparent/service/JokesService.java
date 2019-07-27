@@ -7,11 +7,21 @@ import pl.sda.springparent.dto.Joke;
 import pl.sda.springparent.mapper.ManualJokeMapper;
 import pl.sda.springparent.repository.DbApi;
 
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class JokesService {
 
     @Autowired
     DbApi mockedDb;
+
+    public List<Joke> getJokes() {
+        return mockedDb.getJokes().stream()
+                .map(ManualJokeMapper::map)
+                .collect(toList());
+    }
 
     public Joke getJoke(Integer id) {
         JokeEntity joke = mockedDb.getJoke(id);
