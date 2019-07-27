@@ -1,14 +1,19 @@
 package pl.sda.springparent.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.springparent.dto.Joke;
 import pl.sda.springparent.service.JokesService;
 
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 //@Controller // mvc
 @RestController //rest
+@Slf4j
 public class JokesRestController {
 
     @Autowired
@@ -34,6 +39,17 @@ public class JokesRestController {
     @PostMapping("/jokes")
     public void postJokes(@RequestBody Joke joke) {
         jokesService.addJoke(joke);
+    }
+
+    @GetMapping("/lag")
+    @Cacheable("lag")
+    public Joke lag() {
+        try {
+            sleep(1000);
+        } catch (InterruptedException e) {
+            log.error(e.getMessage());
+        }
+        return Joke.builder().build();
     }
 
 }
