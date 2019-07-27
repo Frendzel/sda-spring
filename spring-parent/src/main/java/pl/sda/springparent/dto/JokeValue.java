@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class JokeValue {
-    @JsonIgnore
     Integer id;
     String joke;
     String[] categories;

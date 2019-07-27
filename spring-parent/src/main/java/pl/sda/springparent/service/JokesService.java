@@ -33,4 +33,8 @@ public class JokesService {
         mockedDb.addJoke(entity);
     }
 
+    public void deleteJoke(Integer id){
+        mockedDb.deleteJoke(id);
+    }
+
 }

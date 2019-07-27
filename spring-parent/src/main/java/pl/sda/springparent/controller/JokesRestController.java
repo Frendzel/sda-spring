@@ -49,7 +49,7 @@ public class JokesRestController {
 
     @DeleteMapping("/joke/{id}")
     public void deleteJoke(@PathVariable Integer id) {
-        //jokesService.delete(id);
+        jokesService.deleteJoke(id);
     }
 
     @GetMapping("/lag")

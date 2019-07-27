@@ -35,9 +35,13 @@ public class MockedDb implements DbApi {
         log.info("Joke has been saved: {} with id: {}", joke, counter);
     }
 
-    //deleteById
-    public void deleteJoke(Integer id){
-        db.remove(id);
+    public void deleteJoke(Integer id) {
+        Map.Entry<Integer, JokeEntity> joke = db.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().getExternalId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Couldn't find any joke 💩"));
+        db.remove(joke.getKey());
     }
     //updateJoke
 
