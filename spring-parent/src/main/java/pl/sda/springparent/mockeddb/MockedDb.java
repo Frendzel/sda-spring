@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import pl.sda.springparent.dao.JokeEntity;
+import pl.sda.springparent.exception.ValidationException;
 import pl.sda.springparent.repository.DbApi;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class MockedDb implements DbApi {
                 .stream()
                 .filter(e -> e.getValue().getExternalId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("No joke"));
+                .orElseThrow(() -> new ValidationException("No joke"));
         return joke.getValue();
     }
 
@@ -45,7 +46,7 @@ public class MockedDb implements DbApi {
                 .stream()
                 .filter(entry -> entry.getValue().getExternalId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Couldn't find any joke 💩"));
+                .orElseThrow(() -> new ValidationException("Couldn't find any joke 💩"));
         db.remove(joke.getKey());
     }
 
@@ -54,7 +55,7 @@ public class MockedDb implements DbApi {
         Map.Entry<Integer, JokeEntity> jokeToUpdate = db.entrySet().stream()
                 .filter(e -> e.getValue().getExternalId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("no joke"));
+                .orElseThrow(() -> new ValidationException("no joke"));
         jokeToUpdate.setValue(entity);
     }
 

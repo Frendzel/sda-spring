@@ -1,5 +1,6 @@
 package pl.sda.springparent.mapper;
 
+import com.google.gson.Gson;
 import org.junit.Test;
 import pl.sda.springparent.dao.JokeEntity;
 import pl.sda.springparent.dto.Joke;
@@ -10,6 +11,21 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 public class ManualJokeMapperTest {
+
+    @Test
+    public void testJsonParsing() {
+        Joke joke = Joke.builder()
+                .value(JokeValue.builder()
+                        .id(500000)
+                        .joke("HaHa")
+                        .categories(new String[]{})
+                        .build())
+                .build();
+        Gson gson = new Gson();
+        String s = gson.toJson(joke);
+        System.out.println(s);
+    }
+
 
     @Test
     public void should_map_correctly_joke_to_joke_entity() {

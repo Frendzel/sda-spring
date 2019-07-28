@@ -14,6 +14,8 @@ import static java.lang.Thread.sleep;
 //@Controller // mvc
 @RestController //rest
 @Slf4j
+//TODO mockmvc
+//TODO ExceptionHandler + ControllerAdvice
 public class JokesRestController {
 
     @Autowired
@@ -30,13 +32,13 @@ public class JokesRestController {
         return jokesService.getJoke(id);
     }
 
-    @GetMapping("/jokes")
+    @GetMapping(value = "/jokes", produces = "application/json;charset=UTF-8")
     public List<Joke> getJokes() {
         return jokesService.getJokes();
     }
 
     //add Joke
-    @PostMapping("/jokes")
+    @PostMapping(value = "/jokes", consumes = "application/json;charset=UTF-8")
     public void postJokes(@RequestBody Joke joke) {
         jokesService.addJoke(joke);
     }
