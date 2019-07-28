@@ -49,7 +49,7 @@ public class SpringParentApplication implements CommandLineRunner {
         log.debug("Liczba beanow: " + context.getBeanDefinitionCount());
         a.getClassName();
         b.getClassName();
-        c.getClassName();
+        test123.getClassName();
         d.getClassName();
     }
 }

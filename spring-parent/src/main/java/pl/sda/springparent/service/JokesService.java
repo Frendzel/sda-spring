@@ -37,4 +37,8 @@ public class JokesService {
         mockedDb.deleteJoke(id);
     }
 
+    public void update(Integer id, Joke joke) {
+        JokeEntity entity = ManualJokeMapper.map(joke);
+        mockedDb.updateJoke(id,entity);
+    }
 }

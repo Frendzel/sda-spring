@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 //{
 //        "type": "success",
 //        "value": {
@@ -19,5 +21,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Joke {
     String type;
+    @NotNull
     JokeValue value;
 }

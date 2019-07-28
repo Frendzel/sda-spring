@@ -24,7 +24,12 @@ public class MockedDb implements DbApi {
 
     @Override
     public JokeEntity getJoke(Integer id) {
-        return db.get(id);
+        Map.Entry<Integer, JokeEntity> joke = db.entrySet()
+                .stream()
+                .filter(e -> e.getValue().getExternalId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("No joke"));
+        return joke.getValue();
     }
 
     @Override
@@ -43,7 +48,15 @@ public class MockedDb implements DbApi {
                 .orElseThrow(() -> new RuntimeException("Couldn't find any joke 💩"));
         db.remove(joke.getKey());
     }
-    //updateJoke
+
+    @Override
+    public void updateJoke(Integer id, JokeEntity entity) {
+        Map.Entry<Integer, JokeEntity> jokeToUpdate = db.entrySet().stream()
+                .filter(e -> e.getValue().getExternalId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("no joke"));
+        jokeToUpdate.setValue(entity);
+    }
 
     private synchronized Integer counter() {
         return db.size() + 1;

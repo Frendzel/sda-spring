@@ -16,4 +16,6 @@ public interface DbApi {
     void addJoke(JokeEntity joke);
 
     void deleteJoke(Integer id);
+
+    void updateJoke(Integer id, JokeEntity entity);
 }

@@ -6,6 +6,7 @@ import pl.sda.springparent.dto.JokeValue;
 
 import static java.util.Arrays.asList;
 
+//TODO walidacja na dane
 public class ManualJokeMapper {
     public static JokeEntity map(Joke joke) {
         return JokeEntity.builder()
@@ -16,7 +17,7 @@ public class ManualJokeMapper {
     }
 
     public static Joke map(JokeEntity entity) {
-        return Joke.builder().type("SUCCESS")
+        return Joke.builder()
                 .value(JokeValue.builder()
                         .id(entity.getExternalId())
                         .joke(entity.getValue())
