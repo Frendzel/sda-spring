@@ -44,7 +44,7 @@ public class MongoConnector {
         try {
             jokes.insertOne(Document.parse(gson.toJson(joke)));
         } catch (Exception e) {
-            throw new ValidationException(e.getMessage());
+            throw new ValidationException("Wrong joke format");
         }
         log.info("Successfully inserted document to the database");
     }
@@ -59,6 +59,9 @@ public class MongoConnector {
 //        }
     //TODO sprobuj sie zastanowic jak mozna ten kod zrefaktorowac uzywajac dowolnego wzorca projektowego
     public Joke findJoke(Joke joke) {
+        if (joke == null) {
+            throw new ValidationException("Wrong joke format");
+        }
         MongoCollection<Document> jokes = getJokesCollection();
         //Fallback search mechanism
 

@@ -19,6 +19,7 @@ import javax.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@NotNull
 public class Joke {
     String type;
     @NotNull
