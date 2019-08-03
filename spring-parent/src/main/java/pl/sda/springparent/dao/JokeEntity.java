@@ -9,7 +9,8 @@ import java.util.List;
 
 @Data
 @Builder
-@Entity //CREATE TABLE
+@Entity
+@Table(name = "JOKE")
 public class JokeEntity {
     @Id
     @GeneratedValue
@@ -17,5 +18,5 @@ public class JokeEntity {
     Integer externalId;
     String value;
     @Transient //ignore column
-    List<String> categories = new ArrayList<>();
+            List<String> categories = new ArrayList<>();
 }

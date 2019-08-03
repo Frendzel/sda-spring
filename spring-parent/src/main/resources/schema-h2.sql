@@ -7,3 +7,10 @@ create table USER
     gender     VARCHAR(50),
     ip_address VARCHAR(20)
 );
+
+create table JOKE
+(
+    id         INT,
+    externalId VARCHAR(50),
+    value      VARCHAR(50)
+);
