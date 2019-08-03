@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.sda.springparent.dto.UserDto;
 import pl.sda.springparent.mapper.UserMapper;
+import pl.sda.springparent.monitoring.CalculateInvocationTime;
 import pl.sda.springparent.repository.UserRepository;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class UserService {
     private UserRepository userRepository;
     private UserMapper userMapper = UserMapper.INSTANCE;
 
+    @CalculateInvocationTime
     public List<UserDto> findAll() {
         return userRepository.findAll()
                 .stream()
