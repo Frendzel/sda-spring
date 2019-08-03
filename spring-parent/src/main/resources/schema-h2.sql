@@ -1,6 +1,6 @@
 create table USER
 (
-    id         INT,
+    id         INT AUTO_INCREMENT,
     first_name VARCHAR(50),
     last_name  VARCHAR(50),
     email      VARCHAR(50),
@@ -10,7 +10,7 @@ create table USER
 
 create table JOKE
 (
-    id         INT,
+    id         INT AUTO_INCREMENT,
     externalId VARCHAR(50),
     value      VARCHAR(50)
 );
