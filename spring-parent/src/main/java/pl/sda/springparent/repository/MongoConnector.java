@@ -66,19 +66,19 @@ public class MongoConnector {
         //Fallback search mechanism
 
         //byId
-        Bson filter = new Document("id", joke.getValue().getId());
+        Bson filter = new Document("value.id", joke.getValue().getId());
         for (Document document : jokes.find(filter)) {
             return gson.fromJson(document.toJson(), Joke.class);
         }
 
         //byJoke
-        filter = new Document("joke", joke.getValue().getJoke());
+        filter = new Document("value.joke", joke.getValue().getJoke());
         for (Document document : jokes.find(filter)) {
             return gson.fromJson(document.toJson(), Joke.class);
         }
 
         //byCategory
-        filter = new Document("categories", joke.getValue().getCategories());
+        filter = new Document("value.categories", joke.getValue().getCategories());
         for (Document document : jokes.find(filter)) {
             return gson.fromJson(document.toJson(), Joke.class);
         }

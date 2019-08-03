@@ -19,17 +19,17 @@ public class MongoJokeRestController {
     @Autowired
     MongoJokesService mongoJokesService;
 
-    @GetMapping("/joke/{id}")
+    @GetMapping("/mongo/joke/{id}")
     public Joke getJoke(@PathVariable Integer id) {
         return mongoJokesService.findJoke(Joke.builder().value(JokeValue.builder().id(id).build()).build());
     }
 
-    @PostMapping("/joke")
+    @PostMapping("/mongo/joke")
     public Joke getJoke(@RequestBody Joke joke) {
         return mongoJokesService.findJoke(joke);
     }
 
-    @GetMapping(value = "/jokes", produces = "application/json;charset=UTF-8")
+    @GetMapping(value = "/mongo/jokes", produces = "application/json;charset=UTF-8")
     public List<Joke> getJokes() {
         //TODO
         return Collections.EMPTY_LIST;
