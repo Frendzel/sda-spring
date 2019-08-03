@@ -1,15 +1,16 @@
 ## 3-4 workshops plan:
+
 # Configuration
-# H2 config
-# SQL table from SQL and JokesRepository
+# 🌈 H2 config 
+# 🌈 SQL table from SQL and JokesRepository
 # Async
 # Validations
 # Synchronized
 # Aspect! For method invocation
 # Log Thread params
 # Transactions
-# Read Jokes from MongoDB and present them on front using thymeleaf
-# (@Controller)
+# 🌈 Read Jokes from MongoDB and present them on front using thymeleaf
+# 🌈 (@Controller)
 # Export data to PDF/EXCEL
 
 # Why do we even need Spring -> https://www.youtube.com/watch?v=ySXlsZDJMgc

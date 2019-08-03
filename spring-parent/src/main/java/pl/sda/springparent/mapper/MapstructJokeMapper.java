@@ -3,11 +3,14 @@ package pl.sda.springparent.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+import org.mapstruct.factory.Mappers;
 import pl.sda.springparent.dao.JokeEntity;
 import pl.sda.springparent.dto.Joke;
 
 @Mapper
 public interface MapstructJokeMapper {
+
+    MapstructJokeMapper INSTANCE = Mappers.getMapper(MapstructJokeMapper.class);
 
     @Mappings({
             @Mapping(source = "value.id", target = "externalId"),
