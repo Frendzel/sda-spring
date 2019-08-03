@@ -35,7 +35,6 @@ public class ChuckNorrisJokesCollector {
         mockedDb.addJoke(map(joke));
         mongoConnector.saveJoke(joke);
         jokesProducer.populateJoke(joke);
-
     }
 
 }

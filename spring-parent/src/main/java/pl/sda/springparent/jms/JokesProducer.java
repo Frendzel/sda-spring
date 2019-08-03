@@ -14,7 +14,6 @@ public class JokesProducer {
     private Gson gson = new Gson();
 
     public void populateJoke(Joke joke) {
-
         jmsTemplate.send("jokes", c -> c.createTextMessage(gson.toJson(joke)));
     }
 }

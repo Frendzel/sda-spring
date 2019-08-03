@@ -1,3 +1,17 @@
+## 3-4 workshops plan:
+# Configuration
+# H2 config
+# SQL table from SQL and JokesRepository
+# Async
+# Validations
+# Synchronized
+# Aspect! For method invocation
+# Log Thread params
+# Transactions
+# Read Jokes from MongoDB and present them on front using thymeleaf
+# (@Controller)
+# Export data to PDF/EXCEL
+
 # Why do we even need Spring -> https://www.youtube.com/watch?v=ySXlsZDJMgc
 ## IoC
 ## Dependency Injections
@@ -53,4 +67,3 @@ The following guides illustrate how to use some features concretely:
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-
