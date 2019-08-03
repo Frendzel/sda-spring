@@ -1,6 +1,7 @@
 package pl.sda.springparent.monitoring;
 
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,18 +13,20 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class InvocationTimeAspect {
 
-    @Before("@annotation(pl.sda.springparent.monitoring.CalculateInvocationTime)")
-    public void logTimeInvocation1() {
-        log.info("Before invocation");
-    }
-
-    @After("@annotation(pl.sda.springparent.monitoring.CalculateInvocationTime)")
-    public void logTimeInvocation2() {
-        log.info("After invocation");
-    }
+//    @Before("@annotation(pl.sda.springparent.monitoring.CalculateInvocationTime)")
+//    public void logTimeInvocation1() {
+//        log.info("Before invocation");
+//    }
+//
+//    @After("@annotation(pl.sda.springparent.monitoring.CalculateInvocationTime)")
+//    public void logTimeInvocation2() {
+//        log.info("After invocation");
+//    }
 
     @Around("@annotation(pl.sda.springparent.monitoring.CalculateInvocationTime)")
-    public void logTimeInvocation3() {
-
+    public void logTimeInvocation3(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        System.out.println("test");
+        Object proceed = proceedingJoinPoint.proceed();
+        System.out.println("test2");
     }
 }
