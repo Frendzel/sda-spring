@@ -26,7 +26,7 @@ public class UserRepositoryTest {
         //when
         userRepository.save(userModel);
         //then
-        //TODO
+        userRepository.findAll().forEach(userModel1 -> System.out.println(userModel));
     }
 
 }

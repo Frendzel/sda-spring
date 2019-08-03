@@ -7,12 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @Data
 @Table(name = "user")
 public class UserModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     Integer id;
     String firstName;
     String lastName;

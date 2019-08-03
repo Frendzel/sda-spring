@@ -7,13 +7,15 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Data
 @Builder
 @Entity
 @Table(name = "JOKE")
 public class JokeEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     Integer id;
     Integer externalId;
     String value;
