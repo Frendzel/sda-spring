@@ -21,8 +21,7 @@ public class JokesRestController {
     @Autowired
     JokesService jokesService;
 
-    @GetMapping("/hello")
-    //@RequestMapping(method = RequestMethod.GET)
+    @GetMapping("/hello") //@RequestMapping(method = RequestMethod.GET)
     public String helloWorld() {
         return "world";
     }

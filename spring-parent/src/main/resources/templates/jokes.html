@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<div th:object="${joke}">
+    <p>Id: <span th:text="*{getValue().id}"></span></p>
+    <p>Joke: <span th:text="*{getValue().joke}"></span>.</p>
+    <p>Categories: <span th:text="*{getValue().categories}"></span>.</p>
+</div>
+</body>
+</html>

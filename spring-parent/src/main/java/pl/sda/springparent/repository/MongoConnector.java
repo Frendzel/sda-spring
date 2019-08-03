@@ -67,6 +67,7 @@ public class MongoConnector {
 
         //byId
         Bson filter = new Document("value.id", joke.getValue().getId());
+        //TODO list or single document?
         for (Document document : jokes.find(filter)) {
             return gson.fromJson(document.toJson(), Joke.class);
         }
@@ -79,6 +80,7 @@ public class MongoConnector {
 
         //byCategory
         filter = new Document("value.categories", joke.getValue().getCategories());
+        //TODO []
         for (Document document : jokes.find(filter)) {
             return gson.fromJson(document.toJson(), Joke.class);
         }
