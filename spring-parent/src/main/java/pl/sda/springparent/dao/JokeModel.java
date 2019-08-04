@@ -13,12 +13,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Builder
 @Entity
 @Table(name = "JOKE")
-public class JokeEntity {
+public class JokeModel {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     Integer id;
     Integer externalId;
     String value;
     @Transient //ignore column
-            List<String> categories = new ArrayList<>();
+    List<String> categories = new ArrayList<>();
 }

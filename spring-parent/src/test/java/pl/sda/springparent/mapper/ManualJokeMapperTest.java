@@ -2,7 +2,7 @@ package pl.sda.springparent.mapper;
 
 import com.google.gson.Gson;
 import org.junit.Test;
-import pl.sda.springparent.dao.JokeEntity;
+import pl.sda.springparent.dao.JokeModel;
 import pl.sda.springparent.dto.Joke;
 import pl.sda.springparent.dto.JokeValue;
 
@@ -40,7 +40,7 @@ public class ManualJokeMapperTest {
                 .build();
 
         //when
-        JokeEntity result = ManualJokeMapper.map(joke);
+        JokeModel result = ManualJokeMapper.map(joke);
         //then
         assertEquals(joke.getValue().getJoke(), result.getValue());
         assertEquals(Arrays.asList(joke.getValue().getCategories()), result.getCategories());

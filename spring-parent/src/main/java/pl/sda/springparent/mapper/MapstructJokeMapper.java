@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
-import pl.sda.springparent.dao.JokeEntity;
+import pl.sda.springparent.dao.JokeModel;
 import pl.sda.springparent.dto.Joke;
 
 @Mapper
@@ -17,12 +17,12 @@ public interface MapstructJokeMapper {
             @Mapping(source = "value.joke", target = "value"),
             @Mapping(source = "value.categories", target = "categories")
     })
-    JokeEntity jokeToJokeEntity(Joke joke);
+    JokeModel jokeToJokeEntity(Joke joke);
 
     @Mappings({
             @Mapping(source = "externalId", target = "value.id"),
             @Mapping(source = "value", target = "value.joke"),
             @Mapping(source = "categories", target = "value.categories")
     })
-    Joke jokeEntityToJoke(JokeEntity entity);
+    Joke jokeEntityToJoke(JokeModel entity);
 }

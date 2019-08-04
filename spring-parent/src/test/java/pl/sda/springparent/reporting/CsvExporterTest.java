@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CsvExtractorTest {
+public class CsvExporterTest {
 
     @Test
     public void saveJokes() throws IOException {
@@ -31,7 +31,7 @@ public class CsvExtractorTest {
         jokes.add(joke1);
         jokes.add(joke2);
         //when
-        CsvExtractor.saveJokes(jokes);
+        CsvExporter.saveJokes(jokes);
         //then
         //TODO
     }

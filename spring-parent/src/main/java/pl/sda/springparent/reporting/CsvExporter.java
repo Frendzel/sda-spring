@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
-public class CsvExtractor {
+public class CsvExporter {
 
     public static void saveJokes(List<Joke> jokes) throws IOException {
         FileWriter fileWriter = new FileWriter("jokes.csv");

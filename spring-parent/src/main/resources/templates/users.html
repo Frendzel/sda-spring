@@ -25,11 +25,11 @@
             </thead>
             <tbody>
             <tr th:each="user : ${users}">
-                <td>Name: <span th:text="${user.getFirstName()}"></span>.</td>
-                <td>Last Name: <span th:text="${user.getLastName()}"></span>.</td>
-                <td>Email: <span th:text="${user.getEmail()}"></span>.</td>
-                <td>Gender: <span th:text="${user.getGender()}"></span>.</td>
-                <td>Ip: <span th:text="${user.getIpAddress()}"></span>.</td>
+                <td><span th:text="${user.getFirstName()}"></span>.</td>
+                <td><span th:text="${user.getLastName()}"></span>.</td>
+                <td><span th:text="${user.getEmail()}"></span>.</td>
+                <td><span th:text="${user.getGender()}"></span>.</td>
+                <td><span th:text="${user.getIpAddress()}"></span>.</td>
             </tr>
             </tbody>
         </table>

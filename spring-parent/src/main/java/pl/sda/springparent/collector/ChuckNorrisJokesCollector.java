@@ -1,10 +1,8 @@
 package pl.sda.springparent.collector;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.sda.springparent.dto.Joke;
@@ -18,15 +16,15 @@ import static pl.sda.springparent.mapper.ManualJokeMapper.map;
 //@Configuration --> pierwsza
 public class ChuckNorrisJokesCollector {
     @Autowired
-    MockedDb mockedDb;
+    private MockedDb mockedDb;
 
     @Autowired
-    MongoConnector mongoConnector;
+    private MongoConnector mongoConnector;
 
     @Autowired
-    JokesProducer jokesProducer;
+    private JokesProducer jokesProducer;
 
-    RestTemplate restTemplate = new RestTemplate();
+    private RestTemplate restTemplate = new RestTemplate();
 
     @Scheduled(cron = "* * * * * *") // Scheduler
     public void saveJokeFromChuckApi() {

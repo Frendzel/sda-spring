@@ -6,7 +6,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
-import org.bson.conversions.Bson;
 import org.springframework.stereotype.Component;
 import pl.sda.springparent.dto.Joke;
 import pl.sda.springparent.exception.JokeNotFoundException;
@@ -31,7 +30,7 @@ public class MongoConnector {
     @PostConstruct
     public void check() {
         MongoCollection<Document> jokes = getJokesCollection();
-        log.info("Successfully connected to the: {}, collection: {} with size: {}",
+        log.debug("Successfully connected to the: {}, collection: {} with size: {}",
                 DB_NAME,
                 COLLECTION_NAME,
                 jokes.countDocuments());
@@ -46,7 +45,7 @@ public class MongoConnector {
         } catch (Exception e) {
             throw new ValidationException("Wrong joke format");
         }
-        log.info("Successfully inserted document to the database");
+        log.debug("Successfully inserted document to the database");
     }
 
     //{
@@ -63,29 +62,35 @@ public class MongoConnector {
             throw new ValidationException("Wrong joke format");
         }
         MongoCollection<Document> jokes = getJokesCollection();
-        //Fallback search mechanism
+        return findJoke(joke, jokes);
 
+    }
+
+    /**
+     * Fallback search mechanism
+     * TODO list or single document?
+     *
+     * @param joke
+     * @param jokes
+     * @return
+     */
+    private Joke findJoke(Joke joke, MongoCollection<Document> jokes) {
         //byId
-        Bson filter = new Document("value.id", joke.getValue().getId());
-        //TODO list or single document?
-        for (Document document : jokes.find(filter)) {
+        for (Document document : jokes.find(new Document("value.id", joke.getValue().getId()))) {
             return gson.fromJson(document.toJson(), Joke.class);
         }
 
         //byJoke
-        filter = new Document("value.joke", joke.getValue().getJoke());
-        for (Document document : jokes.find(filter)) {
+        for (Document document : jokes.find(new Document("value.joke", joke.getValue().getJoke()))) {
             return gson.fromJson(document.toJson(), Joke.class);
         }
 
         //byCategory
-        filter = new Document("value.categories", joke.getValue().getCategories());
         //TODO []
-        for (Document document : jokes.find(filter)) {
+        for (Document document : jokes.find(new Document("value.categories", joke.getValue().getCategories()))) {
             return gson.fromJson(document.toJson(), Joke.class);
         }
         throw new JokeNotFoundException("Cannot find joke with params: " + joke.toString());
-
     }
 
     private MongoCollection<Document> getJokesCollection() {

@@ -3,7 +3,7 @@ package pl.sda.springparent.mockeddb;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import pl.sda.springparent.dao.JokeEntity;
+import pl.sda.springparent.dao.JokeModel;
 import pl.sda.springparent.exception.ValidationException;
 import pl.sda.springparent.repository.DbApi;
 
@@ -14,18 +14,18 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 @Slf4j
-@Profile("mocked") // profile aplikacji
+@Profile("mocked") // Profil ustawiany w app.properties
 public class MockedDb implements DbApi {
-    Map<Integer, JokeEntity> db = new ConcurrentHashMap<>();
+    private Map<Integer, JokeModel> db = new ConcurrentHashMap<>();
 
     @Override
-    public List<JokeEntity> getJokes() {
+    public List<JokeModel> getJokes() {
         return new ArrayList<>(db.values());
     }
 
     @Override
-    public JokeEntity getJoke(Integer id) {
-        Map.Entry<Integer, JokeEntity> joke = db.entrySet()
+    public JokeModel getJoke(Integer id) {
+        Map.Entry<Integer, JokeModel> joke = db.entrySet()
                 .stream()
                 .filter(e -> e.getValue().getExternalId().equals(id))
                 .findFirst()
@@ -34,7 +34,7 @@ public class MockedDb implements DbApi {
     }
 
     @Override
-    public void addJoke(JokeEntity joke) {
+    public void addJoke(JokeModel joke) {
         Integer counter = counter();
         joke.setId(counter);
         db.putIfAbsent(counter, joke);
@@ -42,7 +42,7 @@ public class MockedDb implements DbApi {
     }
 
     public void deleteJoke(Integer id) {
-        Map.Entry<Integer, JokeEntity> joke = db.entrySet()
+        Map.Entry<Integer, JokeModel> joke = db.entrySet()
                 .stream()
                 .filter(entry -> entry.getValue().getExternalId().equals(id))
                 .findFirst()
@@ -51,8 +51,8 @@ public class MockedDb implements DbApi {
     }
 
     @Override
-    public void updateJoke(Integer id, JokeEntity entity) {
-        Map.Entry<Integer, JokeEntity> jokeToUpdate = db.entrySet().stream()
+    public void updateJoke(Integer id, JokeModel entity) {
+        Map.Entry<Integer, JokeModel> jokeToUpdate = db.entrySet().stream()
                 .filter(e -> e.getValue().getExternalId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new ValidationException("no joke"));

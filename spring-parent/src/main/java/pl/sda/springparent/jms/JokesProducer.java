@@ -10,7 +10,7 @@ import pl.sda.springparent.dto.Joke;
 public class JokesProducer {
 
     @Autowired
-    JmsTemplate jmsTemplate;
+    private JmsTemplate jmsTemplate;
     private Gson gson = new Gson();
 
     public void populateJoke(Joke joke) {

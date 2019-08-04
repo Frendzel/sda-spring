@@ -44,7 +44,6 @@ public class SpringParentApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        log.debug("Hello World");
         asList(context.getBeanDefinitionNames()).forEach(log::debug);
         log.debug("Liczba beanow: " + context.getBeanDefinitionCount());
         a.getClassName();

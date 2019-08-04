@@ -25,7 +25,7 @@ public class UserService {
         return userRepository.findAll()
                 .stream()
                 .map(user -> userMapper.userModelToUserDto(user))
-                .peek(userDto -> log.info("Mapping: {}", userDto.toString()))
+                .peek(userDto -> log.trace("Mapping: {}", userDto.toString()))
                 .collect(toList());
     }
 }

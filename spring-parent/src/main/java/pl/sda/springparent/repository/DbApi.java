@@ -1,6 +1,6 @@
 package pl.sda.springparent.repository;
 
-import pl.sda.springparent.dao.JokeEntity;
+import pl.sda.springparent.dao.JokeModel;
 
 import java.util.List;
 
@@ -9,13 +9,13 @@ import java.util.List;
  * przez konkretna implementacje
  */
 public interface DbApi {
-    List<JokeEntity> getJokes();
+    List<JokeModel> getJokes();
 
-    JokeEntity getJoke(Integer id);
+    JokeModel getJoke(Integer id);
 
-    void addJoke(JokeEntity joke);
+    void addJoke(JokeModel joke);
 
     void deleteJoke(Integer id);
 
-    void updateJoke(Integer id, JokeEntity entity);
+    void updateJoke(Integer id, JokeModel entity);
 }

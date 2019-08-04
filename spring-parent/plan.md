@@ -1,17 +1,29 @@
 ## 3-4 workshops plan:
 
-# Configuration
+# Configuration - reading files from different directions (15m)
 # 🌈 H2 config 
 # 🌈 SQL table from SQL and JokesRepository
-# Async
-# Validations
+# Async - (15m)
+# Validations - forms (1h)
 # Synchronized
-# Aspect! For method invocation
-# Log Thread params
+# 🌈 Aspect! For method invocation
+# 🌈 Log Thread params
 # Transactions
+# JDBC Template - (15m)
 # 🌈 Read Jokes from MongoDB and present them on front using thymeleaf
 # 🌈 (@Controller)
-# Export data to PDF/EXCEL
+# Export data to PDF/EXCEL/CSV (1h)
+## implement them on UI on click (30m)
+# XML app context: https://www.concretepage.com/spring-boot/spring-boot-xml-configuration-example
+
+# Group Work (polish description)
+## (trudne) 1. Napisz aplikację, która raz dziennie będzie rozsyłać na wskazany adres maile z 
+## najlepszym żartem o Chucku, który danego dnia pojawił się w bazie.
+## (srednie) 2. Napisz aplikację, która przyjmie na API asynchronicznie żart z dowolnym 
+## formatem wskazanym w formie nagłówka (PDF,EXCEL,CSV) a następnie zapisze ten żart pod wskazany w kolejnym adresie adres.
+## (łatwe) 3. Napisz rankomat żartów. Dowolny żart zapisany w bazie można ocenić, a następnie ocena zostaje do niego przypisana. 
+## Wystaw API umożliwiające podanie rankingu jako filtru.
+
 
 # Why do we even need Spring -> https://www.youtube.com/watch?v=ySXlsZDJMgc
 ## IoC

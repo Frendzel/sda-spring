@@ -29,9 +29,9 @@ public class MongoJokeRestController {
         return mongoJokesService.findJoke(joke);
     }
 
+    //TODO
     @GetMapping(value = "/mongo/jokes", produces = "application/json;charset=UTF-8")
     public List<Joke> getJokes() {
-        //TODO
         return Collections.EMPTY_LIST;
     }
 }
