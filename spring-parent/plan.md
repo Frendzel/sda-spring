@@ -17,13 +17,15 @@
 # XML app context: https://www.concretepage.com/spring-boot/spring-boot-xml-configuration-example
 
 # Group Work (polish description)
-## (trudne) 1. Napisz aplikację, która raz dziennie będzie rozsyłać na wskazany adres maile z 
-## najlepszym żartem o Chucku, który danego dnia pojawił się w bazie.
-## (srednie) 2. Napisz aplikację, która przyjmie na API asynchronicznie żart z dowolnym 
-## formatem wskazanym w formie nagłówka (PDF,EXCEL,CSV) a następnie zapisze ten żart pod wskazany w kolejnym adresie adres.
-## (łatwe) 3. Napisz rankomat żartów. Dowolny żart zapisany w bazie można ocenić, a następnie ocena zostaje do niego przypisana. 
+## Spring Mail
+## Napisz rankomat żartów. Dowolny żart zapisany w bazie można ocenić, a następnie ocena zostaje do niego przypisana. 
 ## Wystaw API umożliwiające podanie rankingu jako filtru.
 
+## (trudne) 1. Napisz aplikację, która raz dziennie będzie rozsyłać na wskazany adres maile z 
+## najlepszym żartem o Chucku, który danego dnia pojawił się w bazie.
+
+## (srednie) 2. Napisz aplikację, która przyjmie na API asynchronicznie żart z dowolnym 
+## formatem wskazanym w formie nagłówka (PDF,EXCEL,CSV) a następnie zapisze ten żart pod wskazany w kolejnym adresie adres.
 
 # Why do we even need Spring -> https://www.youtube.com/watch?v=ySXlsZDJMgc
 ## IoC

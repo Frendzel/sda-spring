@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import pl.sda.springparent.polimorphism.A;
 import pl.sda.springparent.polimorphism.C;
@@ -20,6 +21,7 @@ import static java.util.Arrays.asList;
 @ComponentScan(basePackages = "pl.sda")
 @EnableScheduling
 @EnableCaching
+@EnableAsync
 @Slf4j //lombokowy sposob tworzenia loggera
 public class SpringParentApplication implements CommandLineRunner {
     public static void main(String[] args) {
